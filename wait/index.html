@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REINISFOTO.NET | Drīzumā</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ae1e46d0-f003-431f-8e9f-e382ee90f57d"></script>
+    <style>
+        :root {
+            --primary: #3245ff;
+            --bg: #050505;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Dinamiskais fons - kustīgas gaismas kā trasē naktī */
+        .bg-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(50, 69, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            animation: pulse 8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(5%, 2%); }
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+            font-style: italic;
+            animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        p {
+            color: #888;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            animation: slideUp 1s ease-out;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1rem;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 30px rgba(50, 69, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background: #4456ff;
+        }
+
+        .btn-outline {
+            border: 1px solid #222;
+            color: #888;
+        }
+
+        .btn-outline:hover {
+            border-color: #444;
+            color: white;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Animācijas */
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(30px) skewY(5deg); }
+            to { opacity: 1; transform: translateY(0) skewY(0deg); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Dekoratīvs elements - "trases līnija" */
+        .track-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="track-line"></div>
+
+    <main class="content">
+        <span class="badge">Sagatavošanās posms</span>
+        <h1>Fokuss tiek iestatīts.</h1>
+        <p>Jaunā REINISFOT.NET mājaslapa ir pēdējā taisnē. Drīzumā Tevi šeit gaidīs jaudīgākā informācija no manis.</p>
+
+        <div class="cta-group">
+            <a href="https://m.me/reinisfoto" target="_blank" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.908 1.454 5.494 3.727 7.178V22l3.393-1.86c.84.232 1.74.36 2.68.36 5.523 0 10-4.145 10-9.258S17.523 2 12 2zm1.09 13.04l-2.585-2.757-5.045 2.757 5.545-5.887 2.653 2.757 4.977-2.757-5.545 5.887z"/></svg>
+                Rakstīt Messengerī
+            </a>
+            <a href="https://www.facebook.com/reinisfoto" target="_blank" class="btn btn-outline">Facebook lapa</a>
+        </div>
+    </main>
+</body>
+</html>
