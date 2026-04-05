@@ -24,8 +24,22 @@
       submitBtn.innerText = "Sūta...";
       // NEPASLĒPJAM formu šeit! Tikai vizuāli parādām, ka notiek process.
 
+      // 1. PARBAUDAM- ja dfaulti atkjeketais ir aktivs, tad sutam to (paka ko izvelas)
        if (!form.querySelector('input[name="entry.1051978484"]:checked')) {
         document.getElementById('default-pkg').checked = true;
+      }
+
+
+      // 2. PARBAUDAM - ja ecent ir jau izvelets event
+      const eventSelect = document.getElementById('event-select');
+      if (eventSelect) {
+        // Ja vērtība ir ielikta (caur URL vai automātiski), 
+        // mēs to "pārbīdām", lai pārlūks to tiešām nosūtītu.
+        const currentValue = eventSelect.value;
+        eventSelect.value = currentValue; 
+        
+        // Izsaucam change event, lai forma "zinātu", ka dati tur ir
+        eventSelect.dispatchEvent(new Event('change', { bubbles: true }));
       }
     });
   }
